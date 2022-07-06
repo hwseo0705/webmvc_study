@@ -51,6 +51,11 @@ public class InfoServlet extends HttpServlet {
         }
     }
 
+    @Override
+    public void destroy() {
+
+    }
+
     private double calcBMI(double cm, double kg) {
         double m = cm / 100;
         double bmi = kg / (m * m);
