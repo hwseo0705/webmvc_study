@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
-<%@ page import="com.spring.webmvc.chap01.member.repository.*" %>
-<%@ page import="com.spring.webmvc.chap01.member.model.*" %>
+<%@ page import="com.spring.webmvc.member.repository.*" %>
+<%@ page import="com.spring.webmvc.member.model.*" %>
 
 
 <%-- 여기는 jsp 주석입니다~~ --%>

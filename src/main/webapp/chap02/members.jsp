@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
-<%@ page import="com.spring.webmvc.chap01.member.repository.*" %>
-<%@ page import="com.spring.webmvc.chap01.member.model.*" %>
+<%@ page import="com.spring.webmvc.member.repository.*" %>
+<%@ page import="com.spring.webmvc.member.model.*" %>
 <%@ page import="java.util.List" %>
 
 <%!  private MemberRepository repository = MemoryMemberRepo.getInstance();  %>
@@ -23,6 +23,7 @@
         %>
                 <li>
                     # 회원번호: <%= m.getUserNum() %>, 아이디: <%= m.getAccount() %>, 이름: <%= m.getUserName() %>
+                </li>
         <% } %>
     </ul>
 

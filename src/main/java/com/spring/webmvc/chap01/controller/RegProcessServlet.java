@@ -1,8 +1,8 @@
-package com.spring.webmvc.chap01.member.controller;
+package com.spring.webmvc.chap01.controller;
 
-import com.spring.webmvc.chap01.member.model.Member;
-import com.spring.webmvc.chap01.member.repository.MemberRepository;
-import com.spring.webmvc.chap01.member.repository.MemoryMemberRepo;
+import com.spring.webmvc.member.model.Member;
+import com.spring.webmvc.member.repository.MemberRepository;
+import com.spring.webmvc.member.repository.MemoryMemberRepo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 // 실질적으로 회원가입 데이터를 받아서 처리하는 서블릿
 @WebServlet("/reg-process")
