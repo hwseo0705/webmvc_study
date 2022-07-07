@@ -22,7 +22,7 @@ public class InfoServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        System.out.println("info request!!!!!");
+        System.out.println("info request!!!!!");
 
         // 요청 정보 받기
         double height = Double.parseDouble(req.getParameter("height"));
