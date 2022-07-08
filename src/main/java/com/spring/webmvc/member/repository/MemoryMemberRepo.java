@@ -1,12 +1,14 @@
 package com.spring.webmvc.member.repository;
 
 import com.spring.webmvc.member.model.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository // @Component와 같은 개념
 public class MemoryMemberRepo implements MemberRepository {
 
     // 회원 정보를 저장할 메모리 저장소
