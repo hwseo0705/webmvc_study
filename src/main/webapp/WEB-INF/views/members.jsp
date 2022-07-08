@@ -27,12 +27,30 @@
                     이름: ${m.userName}
                 </a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="/mvc/v4/remove?userNum=${m.userNum}">[delete]</a>
+                <a id="rm-btn" href="/mvc/v4/remove?userNum=${m.userNum}">[delete]</a>
             </li>
         </c:forEach>
     </ul>
 
     <a href="/mvc/join">새로운 회원가입</a>
+
+    <script>
+        const $rmBtn = document.querySelector('#rm-btn');
+        $rmBtn.addEventListener('click', e => {
+            
+            if (!confirm('정말 삭제하시겠습니까?')) {
+                e.preventDefault(); // 링크 이동 중지
+                // 삭제 취소
+                return;
+            }
+
+            const userNum = '${m.userNum}';
+
+            location.href = '/mvc/v4/remove?userNum=' + userNum;
+
+
+        });
+    </script>
 
 </body>
 

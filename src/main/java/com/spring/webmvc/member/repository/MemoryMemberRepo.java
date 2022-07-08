@@ -43,4 +43,9 @@ public class MemoryMemberRepo implements MemberRepository {
     public Member findOne(int userNum) {
         return memberMap.get(userNum);
     }
+
+    @Override
+    public void remove(int userNum) {
+        memberMap.remove(userNum);
+    }
 }
