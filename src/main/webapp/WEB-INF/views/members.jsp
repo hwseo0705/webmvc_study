@@ -22,8 +22,10 @@
 
             <li>
                 # 회원번호: ${m.userNum}
-                , 아이디: ${m.account}
-                , 이름: ${m.userName}
+                , 아이디: ${m.account}, 
+                <a href="/mvc/v4/member?userNum=${m.userNum}">
+                    이름: ${m.userName}
+                </a>
             </li>
         </c:forEach>
     </ul>
