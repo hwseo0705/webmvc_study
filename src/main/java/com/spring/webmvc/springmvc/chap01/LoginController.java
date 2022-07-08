@@ -1,6 +1,7 @@
 package com.spring.webmvc.springmvc.chap01;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,8 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/hw")
 public class LoginController {
 
-//    private static final String ID = "grape111";
-//    private static final String PWD = "ggg999";
+    private static final String ID = "grape111";
+    private static final String PWD = "ggg999";
 
     private static class HwURL {
         public static final String FORM = "/s-login-form";
@@ -36,8 +37,20 @@ public class LoginController {
     }
 
     @RequestMapping(HwURL.CHECK)
-    public String check(@ModelAttribute("id") String id, @ModelAttribute("pwd") String pwd) {
+    public String sLoginCheck(String id, String pw, Model model) {
+
+        String result;
+        //검증
+        if (id.equals("grape111")) {
+            if (pw.equals("ggg9999")) {
+                result = "success";
+            } else {
+                result = "f-pw";
+            }
+        } else {
+            result = "f-id";
+        }
+        model.addAttribute("result", result);
         return "chap01/s-result";
     }
-
 }
