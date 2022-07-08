@@ -1,5 +1,6 @@
 package com.spring.webmvc.chap04.v3.controller;
 
+import com.spring.webmvc.chap04.ModelAndView;
 import com.spring.webmvc.chap04.View;
 import com.spring.webmvc.chap04.v2.controller.ControllerV2;
 import com.spring.webmvc.member.model.Member;
@@ -18,9 +19,11 @@ public class ShowController implements ControllerV3 {
     private final MemberRepository repository = MemoryMemberRepo.getInstance();
 
     @Override
-    public View process(Map<String, String> paramMap) {
+    public ModelAndView process(Map<String, String> paramMap) {
         List<Member> members = repository.findAll();
+        ModelAndView mv = new ModelAndView("members");
         // request.setAttribute("mLists", members);
-        return new View("/WEB-INF/views/members.jsp");
+        mv.addAttribute("mLists", members);
+        return mv;
     }
 }

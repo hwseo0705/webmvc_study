@@ -1,8 +1,12 @@
 package com.spring.webmvc.chap04.v3;
 
 
+import com.spring.webmvc.chap04.ModelAndView;
 import com.spring.webmvc.chap04.View;
 import com.spring.webmvc.chap04.v3.controller.ControllerV3;
+import com.spring.webmvc.chap04.v3.controller.FormController;
+import com.spring.webmvc.chap04.v3.controller.SaveController;
+import com.spring.webmvc.chap04.v3.controller.ShowController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,9 +27,9 @@ public class FrontControllerV3 extends HttpServlet {
             = new HashMap<>();
 
     public FrontControllerV3() {
-//        controllerMap.put("/mvc/v3/join", new FormController());
-//        controllerMap.put("/mvc/v3/save", new SaveController());
-//        controllerMap.put("/mvc/v3/show", new ShowController());
+        controllerMap.put("/mvc/v3/join", new FormController());
+        controllerMap.put("/mvc/v3/save", new SaveController());
+        controllerMap.put("/mvc/v3/show", new ShowController());
     }
 
     @Override
@@ -46,11 +50,22 @@ public class FrontControllerV3 extends HttpServlet {
         // key: 파라미터의 key, value: 파라미터의 value
         Map<String, String> paramMap = createParamMap(req);
 
-        // System.out.println("paramMap = " + paramMap);
+        ModelAndView mv = controller.process(paramMap);
 
-        View view = controller.process(paramMap);
-        if (view != null) view.render(req, resp);
+        // 모델데이터를 jsp로 전송
+        modelToView(req, mv);
 
+        // 화면 렌더링
+        mv.render(req, resp);
+
+    }
+
+    private void modelToView(HttpServletRequest req, ModelAndView mv) {
+        Map<String, Object> model = mv.getModel();
+        System.out.println("model = " + model);
+        for (String key : model.keySet()) {
+            req.setAttribute(key, model.get(key));
+        }
     }
 
     private Map<String, String> createParamMap(HttpServletRequest req) {
