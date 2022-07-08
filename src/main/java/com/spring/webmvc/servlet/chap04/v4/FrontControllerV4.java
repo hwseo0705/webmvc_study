@@ -2,7 +2,6 @@ package com.spring.webmvc.servlet.chap04.v4;
 
 import com.spring.webmvc.servlet.chap04.Model;
 import com.spring.webmvc.servlet.chap04.ModelAndView;
-import com.spring.webmvc.chap04.v4.controller.*;
 import com.spring.webmvc.servlet.chap04.v4.controller.*;
 
 import javax.servlet.ServletException;
