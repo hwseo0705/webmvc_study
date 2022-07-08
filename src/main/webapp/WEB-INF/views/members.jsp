@@ -26,6 +26,8 @@
                 <a href="/mvc/v4/member?userNum=${m.userNum}">
                     이름: ${m.userName}
                 </a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/mvc/v4/remove?userNum=${m.userNum}">[delete]</a>
             </li>
         </c:forEach>
     </ul>
