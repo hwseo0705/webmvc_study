@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.log4j.Log4j2;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,8 @@ import static com.spring.webmvc.springmvc.chap02.domain.Grade.*;
 @Setter
 @Getter
 @ToString
-@NoArgsConstructor
+@Log4j2
+//@NoArgsConstructor
 public class Score {
 
     // 클라이언트가 전달할 데이터
@@ -25,6 +27,10 @@ public class Score {
     private int total;
     private double average;
     private Grade grade; // 학점
+
+    public Score() {
+        log.info("Score NoArgsConstructor Called!!!!!!!!!!!!!!!!!!!!");
+    }
 
     public Score(String name, int kor, int eng, int math) {
         this.name = name;
@@ -46,13 +52,13 @@ public class Score {
         this.grade = Grade.valueOf(rs.getString("grade"));
     }
 
-    private void calcTotalAndAvg() {
+    public void calcTotalAndAvg() {
         this.total = kor + eng + math;
         this.average = total / 3.0;
     }
 
-    private void calcGrade() {
-        if (this.average > 90) {
+    public void calcGrade() {
+        if (this.average >= 90) {
             this.grade = A;
         } else if (this.average >= 80) {
             this.grade = B;

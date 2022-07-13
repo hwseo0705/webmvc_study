@@ -11,6 +11,6 @@ public class ScoreRowMapper implements RowMapper {
     @Override
     public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
         Score s = new Score(rs);
-        return null;
+        return s;
     }
 }

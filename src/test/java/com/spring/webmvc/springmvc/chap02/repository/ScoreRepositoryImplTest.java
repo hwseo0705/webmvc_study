@@ -21,7 +21,7 @@ class ScoreRepositoryImplTest {
     @Test
     @DisplayName("점수 정보가 데이터베이스 테이블에 삽입되어야 한다.")
     void saveTest() {
-        Score s = new Score("냥냥이2", 90, 80, 90);
+        Score s = new Score("멍멍이", 100, 100, 100);
         boolean result = repository.save(s);
         assertTrue(result);
     }
@@ -50,6 +50,16 @@ class ScoreRepositoryImplTest {
 
         // scoreList.forEach(s -> System.out.println(s));
         scoreList.forEach(System.out::println);
+    }
+
+    @Test
+    @DisplayName("특정 학번에 대한 점수 정보를 조회해야 한다.")
+    void findOneTest() {
+        Score score = repository.findOne(26);
+
+        System.out.println("\n\n\n" + score + "\n\n\n");
+
+        assertEquals("멍멍이", score.getName());
     }
 
 }

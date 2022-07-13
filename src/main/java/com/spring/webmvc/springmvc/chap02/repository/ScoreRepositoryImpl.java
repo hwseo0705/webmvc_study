@@ -3,11 +3,8 @@ package com.spring.webmvc.springmvc.chap02.repository;
 import com.spring.webmvc.springmvc.chap02.domain.Score;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @RequiredArgsConstructor // final 필드를 초기화 해주는 생성자 선언
@@ -47,7 +44,10 @@ public class ScoreRepositoryImpl implements ScoreRepository {
 
     @Override
     public Score findOne(int stuNum) {
-        return null;
+
+        String sql = "SELECT * FROM tbl_score WHERE stu_num = ?";
+        // 단일 건수 조회시 사용
+        return template.queryForObject(sql,(rs, rowNum) -> new Score(rs), stuNum);
     }
 
     @Override
