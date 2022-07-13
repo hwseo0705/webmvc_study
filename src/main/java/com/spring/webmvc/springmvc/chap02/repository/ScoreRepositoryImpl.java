@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor // final 필드를 초기화 해주는 생성자 선언
@@ -54,5 +55,23 @@ public class ScoreRepositoryImpl implements ScoreRepository {
     public boolean remove(int stuNum) {
         String sql = "DELETE FROM tbl_score WHERE stu_num = ?";
         return template.update(sql, stuNum) == 1;
+    }
+
+    @Override
+    public List<Score> byAvg() {
+        String sql = "SELECT * FROM tbl_score ORDER BY average";
+        return template.query(sql, (rs, rowNum) -> new Score(rs));
+    }
+
+
+    public List<Integer> maxScore() {
+        String sql = "SELECT MAX(kor) as kor_m, MAX(eng) as eng_m, MAX(math) as math_m FROM tbl_score";
+        return template.queryForObject(sql, (rs, rowNum) -> {
+            ArrayList<Integer> list = new ArrayList<>();
+            list.add(rs.getInt("kor_m"));
+            list.add(rs.getInt("eng_m"));
+            list.add(rs.getInt("math_m"));
+            return list;
+        });
     }
 }

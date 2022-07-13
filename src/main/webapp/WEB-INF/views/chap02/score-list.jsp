@@ -102,6 +102,15 @@
                 </c:forEach>
             </ul>
 
+            <label>
+
+                <button id="byAvg" type="button">평균으로 정렬</button>
+            </label>
+
+            <label>
+                <button id="max" type="button">최고점</button>
+            </label>
+
         </section>
 
 
@@ -132,6 +141,16 @@
         $homeBtn.onclick = e => {
             location.href = '/';
         };
+
+        const $byAvg = document.getElementById('byAvg');
+        $byAvg.onclick = e => {
+            location.href = '/score/byAvg';
+        }
+
+        const $getMax = document.getElementById('max');
+        $getMax.onclick = e => {
+            location.href = '/score/getMax';
+        }
     </script>
 
 </body>

@@ -18,4 +18,10 @@ public interface ScoreRepository {
 
     // 점수 정보 삭제
     boolean remove(int stuNum);
+    
+    // 평균으로 정렬하기
+    List<Score> byAvg();
+
+    // 국어 최고점
+    List<Integer> maxScore();
 }

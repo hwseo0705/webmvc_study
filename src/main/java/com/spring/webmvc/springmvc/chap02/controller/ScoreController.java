@@ -51,4 +51,20 @@ public class ScoreController {
         model.addAttribute("s", score);
         return "chap02/score-detail";
     }
+
+    @RequestMapping("/score/byAvg")
+    public String byAvg(Model model) {
+        List<Score> scoreList = repository.byAvg();
+        model.addAttribute("scores", scoreList);
+        return "chap02/score-list";
+    }
+
+    @RequestMapping("/score/getMax")
+    public String getMax(Model model) {
+        List<Integer> maxList = repository.maxScore();
+        model.addAttribute("s", maxList.get(0));
+        model.addAttribute("h", maxList.get(1));
+        model.addAttribute("w", maxList.get(2));
+        return "chap02/score-max";
+    }
 }
