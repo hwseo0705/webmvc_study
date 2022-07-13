@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @RequestMapping("/mvc/v5/*")
-@Controller
+// @Controller
 public class MemberController {
 
     private final MemberRepository repository;
 
-    @Autowired
+//    @Autowired
     public MemberController(MemberRepository repository) {
         this.repository = repository;
     }
