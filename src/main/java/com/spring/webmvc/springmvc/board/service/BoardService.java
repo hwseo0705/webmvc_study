@@ -1,4 +1,4 @@
-package com.spring.webmvc.springmvc.chap02.service;
+package com.spring.webmvc.springmvc.board.service;
 
 import com.spring.webmvc.springmvc.board.domain.Board;
 import com.spring.webmvc.springmvc.board.repository.BoardRepository;

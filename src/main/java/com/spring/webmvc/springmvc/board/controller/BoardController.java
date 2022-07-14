@@ -1,7 +1,7 @@
 package com.spring.webmvc.springmvc.board.controller;
 
 import com.spring.webmvc.springmvc.board.domain.Board;
-import com.spring.webmvc.springmvc.chap02.service.BoardService;
+import com.spring.webmvc.springmvc.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;

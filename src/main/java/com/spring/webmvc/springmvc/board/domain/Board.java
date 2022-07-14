@@ -23,8 +23,6 @@ public class Board {
 
     private Date regDate;
 
-
-
     public Board(String writer, String title, String content) {
         this.writer = writer;
         this.title = title;
