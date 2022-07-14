@@ -46,7 +46,7 @@ class ScoreRepositoryImplTest {
     @Test
     @DisplayName("모든 점수 정보를 조회해야 한다.")
     void findAllTest() {
-        List<Score> scoreList = repository.findAll();
+        List<Score> scoreList = repository.findAll("");
 
         // scoreList.forEach(s -> System.out.println(s));
         scoreList.forEach(System.out::println);
