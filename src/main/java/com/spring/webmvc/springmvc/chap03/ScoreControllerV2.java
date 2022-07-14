@@ -16,6 +16,7 @@ import java.util.List;
 @Controller // HandlerMapping으로 ScoreController 보내줌
 @Log4j2
 @RequiredArgsConstructor
+@RequestMapping("/v2")
 public class ScoreControllerV2 {
 
     private final ScoreService service;
