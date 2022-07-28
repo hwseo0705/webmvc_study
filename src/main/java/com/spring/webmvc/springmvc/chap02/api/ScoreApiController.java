@@ -7,7 +7,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,10 +20,16 @@ public class ScoreApiController {
 
     // 점수 등록 및 조회 화면 열기 요청
     @GetMapping("/score")
-    public List<Score> list(@RequestBody String sort) {
+    public Map<String, Object> list(String sort) {
+
+        Map<String, Object> findAllDataMap = new HashMap<>();
         log.info("/score GET 요청!!");
 
         List<Score> scoreList = repository.findAll(sort);
+
+        findAllDataMap.put("scoreList", scoreList);
+//        findAllDataMap.put("maxList", repository.maxScore());
+//        findAllDataMap.put("avgList", repository.byAvg());
 
         // 이름 마킹 처리
         for (Score s : scoreList) {
@@ -33,7 +41,7 @@ public class ScoreApiController {
             s.setName(markName.toString());
         }
 
-        return scoreList;
+        return findAllDataMap;
     }
 
 
