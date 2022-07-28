@@ -29,7 +29,7 @@ public class Score {
     private Grade grade; // 학점
 
     public Score() {
-        log.info("Score NoArgsConstructor Called!!!!!!!!!!!!!!!!!!!!");
+//        log.info("Score NoArgsConstructor Called!!!!!!!!!!!!!!!!!!!!");
     }
 
     public Score(String name, int kor, int eng, int math) {
