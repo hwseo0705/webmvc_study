@@ -15,6 +15,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Log4j2
 @CrossOrigin
+// @RequestMapping("/api")
 public class ScoreApiController {
     private final ScoreMapper repository;
 
